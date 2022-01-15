@@ -1,0 +1,85 @@
+
+TESTING BUNNIES: 2
+-- Recursive Combinations Test 1 --
+num_bunnies:	2
+num_required:	2
+combinations:	[[True], [False, True]]
+
+
+TESTING BUNNIES: 3
+-- Recursive Combinations Test 2 --
+num_bunnies:	3
+num_required:	2
+combinations:	[[True], [False, True], [False, False, True]]
+
+-- Recursive Combinations Test 3 --
+num_bunnies:	3
+num_required:	3
+combinations:	[[True, True], [True, False, True], [False, True, True]]
+
+
+TESTING BUNNIES: 4
+-- Recursive Combinations Test 4 --
+num_bunnies:	4
+num_required:	2
+combinations:	[[True], [False, True], [False, False, True], [False, False, False, True]]
+
+-- Recursive Combinations Test 5 --
+num_bunnies:	4
+num_required:	3
+combinations:	[[True, True], [True, False, True], [True, False, False, True], [False, True, True], [False, True, False, True], [False, False, True, True]]
+
+-- Recursive Combinations Test 6 --
+num_bunnies:	4
+num_required:	4
+combinations:	[[True, True, True], [True, True, False, True], [True, False, True, True], [False, True, True, True]]
+
+
+TESTING BUNNIES: 5
+-- Recursive Combinations Test 7 --
+num_bunnies:	5
+num_required:	2
+combinations:	[[True], [False, True], [False, False, True], [False, False, False, True], [False, False, False, False, True]]
+
+-- Recursive Combinations Test 8 --
+num_bunnies:	5
+num_required:	3
+combinations:	[[True, True], [True, False, True], [True, False, False, True], [True, False, False, False, True], [False, True, True], [False, True, False, True], [False, True, False, False, True], [False, False, True, True], [False, False, True, False, True], [False, False, False, True, True]]
+
+-- Recursive Combinations Test 9 --
+num_bunnies:	5
+num_required:	4
+combinations:	[[True, True, True], [True, True, False, True], [True, True, False, False, True], [True, False, True, True], [True, False, True, False, True], [True, False, False, True, True], [False, True, True, True], [False, True, True, False, True], [False, True, False, True, True], [False, False, True, True, True]]
+
+-- Recursive Combinations Test 10 --
+num_bunnies:	5
+num_required:	5
+combinations:	[[True, True, True, True], [True, True, True, False, True], [True, True, False, True, True], [True, False, True, True, True], [False, True, True, True, True]]
+
+
+TESTING BUNNIES: 6
+-- Recursive Combinations Test 11 --
+num_bunnies:	6
+num_required:	2
+combinations:	[[True], [False, True], [False, False, True], [False, False, False, True], [False, False, False, False, True], [False, False, False, False, False, True]]
+
+-- Recursive Combinations Test 12 --
+num_bunnies:	6
+num_required:	3
+combinations:	[[True, True], [True, False, True], [True, False, False, True], [True, False, False, False, True], [True, False, False, False, False, True], [False, True, True], [False, True, False, True], [False, True, False, False, True], [False, True, False, False, False, True], [False, False, True, True], [False, False, True, False, True], [False, False, True, False, False, True], [False, False, False, True, True], [False, False, False, True, False, True], [False, False, False, False, True, True]]
+
+-- Recursive Combinations Test 13 --
+num_bunnies:	6
+num_required:	4
+combinations:	[[True, True, True], [True, True, False, True], [True, True, False, False, True], [True, True, False, False, False, True], [True, False, True, True], [True, False, True, False, True], [True, False, True, False, False, True], [True, False, False, True, True], [True, False, False, True, False, True], [True, False, False, False, True, True], [False, True, True, True], [False, True, True, False, True], [False, True, True, False, False, True], [False, True, False, True, True], [False, True, False, True, False, True], [False, True, False, False, True, True], [False, False, True, True, True], [False, False, True, True, False, True], [False, False, True, False, True, True], [False, False, False, True, True, True]]
+
+-- Recursive Combinations Test 14 --
+num_bunnies:	6
+num_required:	5
+combinations:	[[True, True, True, True], [True, True, True, False, True], [True, True, True, False, False, True], [True, True, False, True, True], [True, True, False, True, False, True], [True, True, False, False, True, True], [True, False, True, True, True], [True, False, True, True, False, True], [True, False, True, False, True, True], [True, False, False, True, True, True], [False, True, True, True, True], [False, True, True, True, False, True], [False, True, True, False, True, True], [False, True, False, True, True, True], [False, False, True, True, True, True]]
+
+-- Recursive Combinations Test 15 --
+num_bunnies:	6
+num_required:	6
+combinations:	[[True, True, True, True, True], [True, True, True, True, False, True], [True, True, True, False, True, True], [True, True, False, True, True, True], [True, False, True, True, True, True], [False, True, True, True, True, True]]
+

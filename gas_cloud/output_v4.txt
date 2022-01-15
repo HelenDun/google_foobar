@@ -1,0 +1,240 @@
+Solution Test 1
+Nebula:
+0:	xx.x.x.xx.
+1:	xx....xxx.
+2:	xx.......x
+3:	.x....xx..
+Expected: 11567
+V3 Result: 11567
+V3 Time: 0.0031731128692626953
+BF Result: -1
+BF Time: 2.1457672119140625e-06
+
+
+Solution Test 2
+Nebula:
+0:	x.x
+1:	.x.
+2:	x.x
+Expected: 4
+V3 Result: 4
+V3 Time: 0.00015997886657714844
+BF Result: 4
+BF Time: 0.520031213760376
+
+
+Solution Test 3
+Nebula:
+0:	x.x..xxx
+1:	x.x...x.
+2:	xxx...x.
+3:	x.x...x.
+4:	x.x..xxx
+Expected: 254
+V3 Result: 254
+V3 Time: 0.006879091262817383
+BF Result: -1
+BF Time: 9.5367431640625e-07
+
+
+Solution Test 4
+Nebula:
+0:	..
+1:	..
+Expected: 208
+V3 Result: 208
+V3 Time: 0.0001800060272216797
+BF Result: 208
+BF Time: 0.0026559829711914062
+
+
+Solution Test 5
+Nebula:
+0:	...
+1:	...
+2:	...
+Expected: 10148
+V3 Result: 10148
+V3 Time: 0.0008509159088134766
+BF Result: 10148
+BF Time: 0.5404927730560303
+
+
+Solution Test 6
+Nebula:
+0:	xx
+1:	xx
+Expected: 8
+V3 Result: 8
+V3 Time: 5.1021575927734375e-05
+BF Result: 8
+BF Time: 0.002586841583251953
+
+
+Solution Test 7
+Nebula:
+0:	xxx
+1:	xxx
+2:	xxx
+Expected: 12
+V3 Result: 12
+V3 Time: 8.893013000488281e-05
+BF Result: 12
+BF Time: 0.5183730125427246
+
+
+Solution Test 8
+Nebula:
+0:	xxxx
+1:	xxxx
+2:	xxxx
+3:	xxxx
+Expected: 20
+V3 Result: 20
+V3 Time: 0.00019311904907226562
+BF Result: -1
+BF Time: 0.0
+
+
+Solution Test 9
+Nebula:
+0:	xxxxx
+1:	xxxxx
+2:	xxxxx
+3:	xxxxx
+4:	xxxxx
+Expected: 28
+V3 Result: 28
+V3 Time: 0.0003101825714111328
+BF Result: -1
+BF Time: 0.0
+
+
+Solution Test 10
+Nebula:
+0:	.x.
+1:	...
+2:	.xx
+Expected: -1
+V3 Result: 78
+V3 Time: 0.0005540847778320312
+BF Result: 78
+BF Time: 0.5154330730438232
+
+
+Solution Test 11
+Nebula:
+0:	...
+1:	..x
+2:	.xx
+Expected: -1
+V3 Result: 317
+V3 Time: 0.0005633831024169922
+BF Result: 317
+BF Time: 0.5328218936920166
+
+
+Solution Test 12
+Nebula:
+0:	.xx
+1:	..x
+2:	...
+Expected: -1
+V3 Result: 317
+V3 Time: 0.0005502700805664062
+BF Result: 317
+BF Time: 0.5172009468078613
+
+
+Solution Test 13
+Nebula:
+0:	x..
+1:	...
+2:	...
+Expected: 2056
+V3 Result: 2056
+V3 Time: 0.0005910396575927734
+BF Result: 2056
+BF Time: 0.5129280090332031
+
+
+Solution Test 14
+Nebula:
+0:	...
+1:	...
+2:	x..
+Expected: 2056
+V3 Result: 2056
+V3 Time: 0.0006210803985595703
+BF Result: 2056
+BF Time: 0.5490989685058594
+
+
+Solution Test 15
+Nebula:
+0:	..x
+1:	...
+2:	...
+Expected: 2056
+V3 Result: 2056
+V3 Time: 0.0007529258728027344
+BF Result: 2056
+BF Time: 0.5369899272918701
+
+
+Solution Test 16
+Nebula:
+0:	...
+1:	...
+2:	..x
+Expected: 2056
+V3 Result: 2056
+V3 Time: 0.0007748603820800781
+BF Result: 2056
+BF Time: 0.5642008781433105
+
+
+Solution Test 17
+Nebula:
+0:	x.
+1:	..
+Expected: 38
+V3 Result: 38
+V3 Time: 0.00011539459228515625
+BF Result: 38
+BF Time: 0.002624034881591797
+
+
+Solution Test 18
+Nebula:
+0:	.x
+1:	..
+Expected: 38
+V3 Result: 38
+V3 Time: 0.0001430511474609375
+BF Result: 38
+BF Time: 0.002644062042236328
+
+
+Solution Test 19
+Nebula:
+0:	..
+1:	x.
+Expected: 38
+V3 Result: 38
+V3 Time: 0.0002491474151611328
+BF Result: 38
+BF Time: 0.0029740333557128906
+
+
+Solution Test 20
+Nebula:
+0:	..
+1:	.x
+Expected: 38
+V3 Result: 38
+V3 Time: 0.00015425682067871094
+BF Result: 38
+BF Time: 0.0026998519897460938
+
+

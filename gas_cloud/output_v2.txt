@@ -1,0 +1,42 @@
+Solution Test 1
+Nebula:
+0:	xx.x.x.xx.
+1:	xx....xxx.
+2:	xx.......x
+3:	.x....xx..
+Expected: 11567
+Result: 11567
+Time: 0.1755051612854004
+
+
+Solution Test 2
+Nebula:
+0:	x.x
+1:	.x.
+2:	x.x
+Expected: 4
+Result: 4
+Time: 0.000125885009765625
+
+
+Solution Test 3
+Nebula:
+0:	x.x..xxx
+1:	x.x...x.
+2:	xxx...x.
+3:	x.x...x.
+4:	x.x..xxx
+Expected: 254
+Result: 254
+Time: 0.024270057678222656
+
+
+Solution Test 4
+Nebula:
+0:	..
+1:	..
+Expected: 0
+Result: 208
+Time: 0.00017881393432617188
+
+
