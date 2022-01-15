@@ -1,83 +1,229 @@
 import time
 
-def solution(g):
-    transposed = tuple(zip(*g))
-    preimgs = precol(transposed[0])
-    precount = dict()
-    for pair in preimgs:
-        precount[pair[0]] = 1
-    for col in transposed:
-        preimgs = precol(col)
-        count = dict()
-        for pair in preimgs:
-            if pair[0] not in precount: precount[pair[0]] = 0
-            if pair[1] not in count: count[pair[1]] = 0
-            count[pair[1]] += precount[pair[0]]
-        precount = count
-    return sum(precount.values())
+'''
 
+Final Solution
+By Helen Dun
+Inspired by Shrey Shah's Solution
 
-def precol(col):
-    possib = ((0, 0), (0, 1), (1, 0), (1, 1))
-    curr = devol[col[0]]
-    for i in range(1, len(col)):
-        new = []
-        for tes in curr:
-            for comb in possib:
-                if evol[(tes[i], comb)] == col[i]:
-                    new.append(tes+(comb,))
-        curr = tuple(new)
-    bin_ret = [tuple(zip(*i)) for i in curr]
-    return [tuple([bitlist(nu) for nu in possibl]) for possibl in bin_ret]
+'''
 
-def bitlist(bitsl):
-    out = 0
-    for bit in bitsl:
-        out = (out << 1) | bit
-    return out
+def get_empty_nebula(num_rows, num_cols):
+    return [[False]*num_cols for _ in range(0, num_rows)]
 
-evol = {
-            ((0, 0), (0, 0)): 0, 
-            ((0, 0), (0, 1)): 1, 
-            ((0, 0), (1, 0)): 1,
-            ((0, 0), (1, 1)): 0, 
-            ((0, 1), (0, 0)): 1, 
-            ((0, 1), (0, 1)): 0,
-            ((0, 1), (1, 0)): 0, 
-            ((0, 1), (1, 1)): 0, 
-            ((1, 0), (0, 0)): 1,
-            ((1, 0), (0, 1)): 0, 
-            ((1, 0), (1, 0)): 0, 
-            ((1, 0), (1, 1)): 0,
-            ((1, 1), (0, 0)): 0, 
-            ((1, 1), (0, 1)): 0, 
-            ((1, 1), (1, 0)): 0,
-            ((1, 1), (1, 1)): 0
-        }
+def get_serial(boolean_values):
+    binary = 0b10
+    for boolean_value in boolean_values:
+        binary += boolean_value
+        binary = binary << 1
+    return binary >> 1
 
-devol = {
-            0:(
-                ((0, 0), (0, 0)), 
-                ((0, 0), (1, 1)), 
-                ((0, 1), (0, 1)),
-                ((0, 1), (1, 0)), 
-                ((0, 1), (1, 1)), 
-                ((1, 0), (0, 1)),
-                ((1, 0), (1, 0)), 
-                ((1, 0), (1, 1)), 
-                ((1, 1), (0, 0)),
-                ((1, 1), (0, 1)), 
-                ((1, 1), (1, 0)), 
-                ((1, 1), (1, 1))
-            ),
-            1:(
-                ((1, 0), (0, 0)), 
-                ((0, 1), (0, 0)), 
-                ((0, 0), (1, 0)),
-                ((0, 0), (0, 1))
-        )}
+def get_reflection(nebula):
+    num_rows = len(nebula)
+    num_cols = len(nebula[0])
+    nebula_reflection = get_empty_nebula(num_cols, num_rows)
+    for row in range(0, num_rows):
+        for col in range(0, num_cols):
+            nebula_reflection[col][row] = nebula[row][col]
+    return nebula_reflection
 
+POSSIBILITIES_START = {
+    True: [
+        [
+            [True, False],
+            [False, False]
+        ],
+        [
+            [False, True],
+            [False, False]
+        ],
+        [
+            [False, False],
+            [True, False]
+        ],
+        [
+            [False, False],
+            [False, True]
+        ]
+    ],
+    False: [
+        [
+            # ..
+            # ..
+            [False, False],
+            [False, False]
+        ],
+        [
+            # x.
+            # x.
+            [True, False],
+            [True, False]
+        ],
+        [
+            # xx
+            # ..
+            [True, True],
+            [False, False]
+        ],
+        [
+            # x.
+            # .x
+            [True, False],
+            [False, True]
+        ],
+        [
+            # .x
+            # x.
+            [False, True],
+            [True, False]
+        ],
+        [
+            # xx
+            # x.
+            [True, True],
+            [True, False]
+        ],
+        [
+            # ..
+            # xx
+            [False, False],
+            [True, True]
+        ],
+        [
+            # x.
+            # xx
+            [True, False],
+            [True, True]
+        ],
+        [
+            # .x
+            # .x
+            [False, True],
+            [False, True]
+        ],
+        [
+            # xx
+            # .x
+            [True, True],
+            [False, True]
+        ],
+        [
+            # .x
+            # xx
+            [False, True],
+            [True, True]
+        ],
+        [
+            # xx
+            # xx
+            [True, True],
+            [True, True]
+        ]
+    ]}
+POSSIBILITIES_EDGE = {
+    # next has gas, top left, top right
+    get_serial([True, True, True]): [],
+    get_serial([True, True, False]): [
+        [False, False]
+    ],
+    get_serial([True, False, True]): [
+        [False, False]
+    ],
+    get_serial([True, False, False]): [
+        [True, False],
+        [False, True]
+    ],
 
+    get_serial([False, True, True]): [
+        [True, True],
+        [True, False],
+        [False, True],
+        [False, False]
+    ],
+    get_serial([False, True, False]): [
+        [True, True],
+        [True, False],
+        [False, True]
+    ],
+    get_serial([False, False, True]): [
+        [True, True],
+        [True, False],
+        [False, True]
+    ],
+    get_serial([False, False, False]): [
+        [True, True],
+        [False, False]
+    ]}
+
+def get_serial_row_pair_possibilities(nebula_row):
+    # start with the upper left corner
+    has_gas = nebula_row[0]
+    curr_possibilities = POSSIBILITIES_START[has_gas]
+
+    # then find each possible and valid row
+    for i in range(1, len(nebula_row)):
+        next_possibilities = []
+        has_gas = nebula_row[i]
+
+        for curr_possibility in curr_possibilities:
+            top_left_has_gas = curr_possibility[i][0]
+            top_right_has_gas = curr_possibility[i][1]
+            serial = get_serial([has_gas, top_left_has_gas, top_right_has_gas])
+
+            # store the curr possibility concatenated with each of the next edge possibilities
+            edge_possibilities = POSSIBILITIES_EDGE[serial]
+            for edge_possibility in edge_possibilities:
+                next_possibilities.append(curr_possibility + [edge_possibility])
+        curr_possibilities = next_possibilities
+
+    # serialize each row of boolean values into a binary number
+    serial_possibilities = []
+    for curr_possibility in curr_possibilities:
+        row1 = []
+        row2 = []
+        for pair in curr_possibility:
+            row1.append(pair[0])
+            row2.append(pair[1])
+        serial1 = get_serial(row1)
+        serial2 = get_serial(row2)
+        serial_possibilities.append([serial1, serial2])
+
+    return serial_possibilities
+
+def solution(nebula):
+    num_rows = len(nebula)
+    num_cols = len(nebula[0])
+
+    # have the pass-by-reference lists in the 2D array be the shorter side
+    if num_rows < num_cols:
+        nebula = get_reflection(nebula)
+        num_rows, num_cols = num_cols, num_rows
+    
+    # count how many of each second row unique serials there are
+    pair_second = {}
+    serialized_row_pairs = get_serial_row_pair_possibilities(nebula[0])
+    for pair in serialized_row_pairs:
+        if pair[1] not in pair_second:
+            pair_second[pair[1]] = 0
+        pair_second[pair[1]] += 1
+    
+    # continue to count each second row unique serial for further possibilities
+    for i in range(1, num_rows):
+        pair_first = pair_second
+        pair_second = {}
+        serialized_row_pairs = get_serial_row_pair_possibilities(nebula[i])
+        for pair in serialized_row_pairs:
+            if pair[0] not in pair_first:
+                pair_first[pair[0]] = 0
+            if pair[1] not in pair_second:
+                pair_second[pair[1]] = 0
+            pair_second[pair[1]] += pair_first[pair[0]]
+
+    # count how many routes there were for the remaining possibilities
+    sum = 0
+    for key in pair_second:
+        sum += pair_second[key]
+    return sum
 
 
 
@@ -98,9 +244,6 @@ def is_valid(src_nebula, dst_nebula):
                 return False
 
     return True
-
-def get_empty_nebula(num_rows, num_cols):
-    return [[False]*num_cols for _ in range(0, num_rows)]
 
 def recursive_combinations(missing_num, bunnies_index, bunnies_num, combination):
     if (missing_num > bunnies_num - bunnies_index):
@@ -163,6 +306,37 @@ def print_nebula(nebula):
 
         print("")
 
+def test_solution_silent(nebula):
+    result_s = solution(nebula)
+    result_bf = brute_force(nebula)
+    if result_s != result_bf:
+        print("WARNING!! Different Results!!")
+        print("Nebula:")
+        print_nebula(nebula)
+        print("V4 Result: " + str(result_s))
+        print("BF Result: " + str(result_bf))
+
+def test_solutions_by_size(num_rows, num_cols):
+    max_index = num_rows * num_cols
+    src_nebula = get_empty_nebula(num_rows,num_cols)
+    test_solution_silent(src_nebula)
+
+    for i in range(1, max_index+1):
+        combinations = recursive_combinations(i, 0, max_index, [])
+        for k in range(0, len(combinations)):
+            combination = combinations[k]
+            for j in range(0, len(combination)):
+                value = combination[j]
+                row = j // (num_cols)
+                col = j % (num_cols)
+                src_nebula[row][col] = value
+            for j in range(len(combination), max_index):
+                row = j // (num_cols)
+                col = j % (num_cols)
+                src_nebula[row][col] = False
+            test_solution_silent(src_nebula)
+    return
+
 def test_solution(num, nebula, expected):
     print("Solution Test " + str(num))
     print("Nebula:")
@@ -171,8 +345,8 @@ def test_solution(num, nebula, expected):
     start = time.time()
     result = solution(nebula)
     stop = time.time()
-    print("V3 Result: " + str(result))
-    print("V3 Time: " + str(stop-start))
+    print("V4 Result: " + str(result))
+    print("V4 Time: " + str(stop-start))
     start = time.time()
     result = brute_force(nebula)
     stop = time.time()
@@ -180,17 +354,6 @@ def test_solution(num, nebula, expected):
     print("BF Time: " + str(stop-start))
     print("")
     print("")
-
-def test_solution_silent(nebula):
-    result_s = solution(nebula)
-    result_bf = brute_force(nebula)
-    if result_s != result_bf:
-        print("WARNING!! Different Results!!")
-        print("Nebula:")
-        print_nebula(nebula)
-        print("V3 Result: " + str(result_s))
-        print("BF Result: " + str(result_bf))
-
 
 def test_solutions():
     nebula = [
@@ -325,34 +488,6 @@ def test_solutions():
         [False, True]
     ]
     test_solution(20,nebula,38)
-
-def test_solutions_by_size(num_rows, num_cols):
-    max_index = num_rows * num_cols
-    src_nebula = get_empty_nebula(num_rows,num_cols)
-    test_solution_silent(src_nebula)
-
-    for i in range(1, max_index+1):
-        combinations = recursive_combinations(i, 0, max_index, [])
-        for k in range(0, len(combinations)):
-            combination = combinations[k]
-            for j in range(0, len(combination)):
-                value = combination[j]
-                row = j // (num_cols)
-                col = j % (num_cols)
-                src_nebula[row][col] = value
-            for j in range(len(combination), max_index):
-                row = j // (num_cols)
-                col = j % (num_cols)
-                src_nebula[row][col] = False
-            test_solution_silent(src_nebula)
     return
 
-
-nebula = [
-    [True, True, False, True, False, True, False, True, True, False],
-    [True, True, False, False, False, False, True, True, True, False],
-    [True, True, False, False, False, False, False, False, False, True],
-    [False, True, False, False, False, False, True, True, False, False]
-]
-test_solution(1,nebula,11567)
-#test_solutions()
+test_solutions()
