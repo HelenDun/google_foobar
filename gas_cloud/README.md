@@ -20,24 +20,24 @@ The gas cloud problem was theme'd about shrinking nebula clouds. For this proble
 Here are some bigger examples of nebula clouds before and after shrinking:
 
 #### Nebula 1 - Before
-0.  .x.
-1.  ...
-2.  .xx
+    .x.
+    ...
+    .xx
 
 #### Nebula 1 - After
-0.	xx
-1.	x.
+    xx
+    x.
 
 #### Nebula 2 - Before
-0.	xx.x.x.xx.
-1.	xx....xxx.
-2.	xx.......x
-3.	.x....xx..
+    xx.x.x.xx.
+    xx....xxx.
+    xx.......x
+    .x....xx..
 
 #### Nebula 2 - After
-0.	..xxx....
-1.	.....x...
-2.	.....x.xx
+    ..xxx....
+    .....x...
+    .....x.xx
 
 The smallest nebula cloud possible that can shrink must be at least of size 2x2. When a nebula cloud shrinks, it goes from some size **N x M** to size **(N - 1) x (M - 1)**. The length and height do not need to be the same.
 
