@@ -1,8 +1,6 @@
 # Gas Cloud - Level 5
 
 ## The Problem
-The original problem can be found here, https://github.com/n3a9/google-foobar/blob/master/journal.md, but here is also my summary of it.
-
 The gas cloud problem was theme'd about shrinking nebula clouds. For this problem, a nebula cloud is represented by a 2D array, with an 'x' representing a pocket of gas and '.' representing empty space. When a nebula cloud shrinks, every 2x2 of the nebula becomes a correlating coordinate of the new, shrunken nebula cloud. If there is one and only one pocket of gas in the 2x2, the correlating coordinate will be a pocket of gas. Otherwise, the correlating coordinate will be empty. For the following examples, Cloud 2 correlates to a pocket of gas, 'x' and Clouds 1 and 3 correlate to empty space.
 
 #### Cloud 1
